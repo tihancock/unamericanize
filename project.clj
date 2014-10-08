@@ -13,5 +13,4 @@
     :builds [{:source-paths ["src"]
               :compiler {
                 :output-to "unamericanize.js"
-                :source-map true
                 :optimizations :whitespace}}]})
