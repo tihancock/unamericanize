@@ -2,9 +2,13 @@
   (:require [clojure.string :refer [replace upper-case capitalize lower-case split join]]))
 
 (def conversions
-  {"zucchini" "aubergine"
-   "scallion" "spring onion"
-   "cilantro" "coriander"})
+  {"zucchini"  "courgette"
+   "eggplant"  "aubergine"
+   "scallion"  "spring onion"
+   "cilantro"  "coriander"
+   "beet"      "beetroot"
+   "fava bean" "broad bean"
+   "garbanzo"  "chickpea"})
 
 (defn walk-nodes
   [node f]
