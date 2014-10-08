@@ -1,0 +1,13 @@
+{
+    "name": "Unamericanize",
+    "version": "0.1",
+    "incognito": "split",
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["unamericanize.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "manifest_version": 2
+}

@@ -5,15 +5,13 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2311"]]
 
-  :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
+  :plugins [[lein-cljsbuild "1.0.3"]]
 
   :source-paths ["src"]
 
   :cljsbuild {
-    :builds [{:id "unamericanize"
-              :source-paths ["src"]
+    :builds [{:source-paths ["src"]
               :compiler {
                 :output-to "unamericanize.js"
-                :output-dir "out"
-                :optimizations :none
-                :source-map true}}]})
+                :source-map true
+                :optimizations :whitespace}}]})
