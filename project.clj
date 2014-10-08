@@ -12,5 +12,5 @@
   :cljsbuild {
     :builds [{:source-paths ["src"]
               :compiler {
-                :output-to "unamericanize.js"
+                :output-to "out/unamericanize.js"
                 :optimizations :whitespace}}]})
