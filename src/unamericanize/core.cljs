@@ -26,7 +26,11 @@
 (defn replace-match
   [match to]
   (let [tokenized-to (split to #" ")]
-    (join " " (map (capitalization match) tokenized-to))))
+    (str "<span "
+         "style=\"background-color:yellow;\""
+         "title=\"" match "\">"
+         (join " " (map (capitalization match) tokenized-to))
+         "</span>")))
 
 (defn unamericanize
   [input-text conversion-map]
@@ -35,6 +39,18 @@
    input-text
    conversion-map))
 
+(defn replace-node
+  [node content]
+  (let [span (.createElement js/document "span")]
+    (set! (.-innerHTML span) content)
+    (-> node
+        (.-parentNode)
+        (.replaceChild span node))))
+
 (walk-nodes
  js/document.body
- (fn [n] (set! (.-textContent n) (unamericanize (.-textContent n) conversions))))
+ (fn [n]
+   (let [current-value        (.-textContent n)
+         unamericanized-value (unamericanize current-value conversions)]
+     (if (not= current-value unamericanized-value)
+       (replace-node n unamericanized-value)))))
