@@ -52,5 +52,6 @@
  (fn [n]
    (let [current-value        (.-textContent n)
          unamericanized-value (unamericanize current-value conversions)]
-     (if (not= current-value unamericanized-value)
+     (if (and (not= (subs current-value 0 5) "<meta")
+              (not= current-value unamericanized-value))
        (replace-node n unamericanized-value)))))
