@@ -4,7 +4,7 @@
     "incognito": "split",
     "content_scripts": [
         {
-            "matches": ["*://*/*"],
+            "matches": ["<all_urls>"],
             "js": ["out/unamericanize.js"],
             "run_at": "document_end"
         }
